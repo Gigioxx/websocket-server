@@ -8,7 +8,7 @@ const socket = io();
 
 socket.on( 'connect', () => {
 
-    console.log('Connected');
+    // console.log('Connected');
 
     lblOffline.style.display = 'none';
     lblOnline.style.display = '';
@@ -17,11 +17,15 @@ socket.on( 'connect', () => {
 
 socket.on( 'disconnect', () => {
 
-    console.log('Disconnected');
+    // console.log('Disconnected');
 
     lblOnline.style.display = 'none';
     lblOffline.style.display = '';
 
+});
+
+socket.on('send-message', ( payload ) => {
+    console.log( payload );
 });
 
 btnSend.addEventListener( 'click', () => {
